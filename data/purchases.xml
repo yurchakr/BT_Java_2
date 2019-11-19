@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="11.0.3" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="by.bsuir.autobase.entity.Purchase">
+    <void property="customer">
+     <object class="by.bsuir.autobase.entity.Customer">
+      <void property="name">
+       <string>Roman</string>
+      </void>
+      <void property="password">
+       <string>123</string>
+      </void>
+     </object>
+    </void>
+    <void property="vehicle">
+     <object class="by.bsuir.autobase.entity.Car">
+      <void property="bodyType">
+       <object class="java.lang.Enum" method="valueOf">
+        <class>by.bsuir.autobase.entity.BodyType</class>
+        <string>MPV</string>
+       </object>
+      </void>
+      <void property="doorCount">
+       <int>5</int>
+      </void>
+      <void property="fuelConsumption">
+       <double>12.0</double>
+      </void>
+      <void property="fuelType">
+       <object class="java.lang.Enum" method="valueOf">
+        <class>by.bsuir.autobase.entity.FuelType</class>
+        <string>DIESEL</string>
+       </object>
+      </void>
+      <void property="make">
+       <string>Mercedes</string>
+      </void>
+      <void property="manager">
+       <object class="by.bsuir.autobase.entity.Manager">
+        <void property="name">
+         <string>Man</string>
+        </void>
+        <void property="password">
+         <string>123</string>
+        </void>
+       </object>
+      </void>
+      <void property="model">
+       <string>Benz</string>
+      </void>
+      <void property="power">
+       <int>12</int>
+      </void>
+      <void property="price">
+       <double>2022.0</double>
+      </void>
+      <void property="seatCount">
+       <int>5</int>
+      </void>
+      <void property="year">
+       <int>1205</int>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>

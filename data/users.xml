@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="11.0.3" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="by.bsuir.autobase.entity.Manager">
+    <void property="name">
+     <string>Man</string>
+    </void>
+    <void property="password">
+     <string>123</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="by.bsuir.autobase.entity.Customer">
+    <void property="name">
+     <string>Roman</string>
+    </void>
+    <void property="password">
+     <string>123</string>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>
