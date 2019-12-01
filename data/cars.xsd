@@ -1,61 +1,52 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="java">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="object">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="void">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="object">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element maxOccurs="unbounded" name="void">
-                            <xs:complexType>
-                              <xs:sequence>
-                                <xs:element minOccurs="0" name="string" type="xs:string" />
-                                <xs:element minOccurs="0" name="double" type="xs:decimal" />
-                                <xs:element minOccurs="0" name="int" type="xs:unsignedShort" />
-                                <xs:element minOccurs="0" name="object">
-                                  <xs:complexType>
-                                    <xs:sequence>
-                                      <xs:element minOccurs="0" maxOccurs="unbounded" name="void">
-                                        <xs:complexType>
-                                          <xs:sequence>
-                                            <xs:element name="string" type="xs:string" />
-                                          </xs:sequence>
-                                          <xs:attribute name="property" type="xs:string" use="required" />
-                                        </xs:complexType>
-                                      </xs:element>
-                                      <xs:element minOccurs="0" name="class" type="xs:string" />
-                                      <xs:element minOccurs="0" name="string" type="xs:string" />
-                                    </xs:sequence>
-                                    <xs:attribute name="class" type="xs:string" use="required" />
-                                    <xs:attribute name="method" type="xs:string" use="optional" />
-                                  </xs:complexType>
-                                </xs:element>
-                              </xs:sequence>
-                              <xs:attribute name="property" type="xs:string" use="required" />
-                            </xs:complexType>
-                          </xs:element>
-                        </xs:sequence>
-                        <xs:attribute name="class" type="xs:string" use="required" />
-                      </xs:complexType>
-                    </xs:element>
-                  </xs:sequence>
-                  <xs:attribute name="method" type="xs:string" use="required" />
-                </xs:complexType>
-              </xs:element>
-            </xs:sequence>
-            <xs:attribute name="class" type="xs:string" use="required" />
-          </xs:complexType>
-        </xs:element>
-      </xs:sequence>
-      <xs:attribute name="version" type="xs:string" use="required" />
-      <xs:attribute name="class" type="xs:string" use="required" />
-    </xs:complexType>
-  </xs:element>
+  <xs:element name="java" type="javaType"/>
+  <xs:complexType name="objectType">
+    <xs:sequence>
+      <xs:element name="class" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="by.bsuir.autobase.entity.BodyType"/>
+            <xs:enumeration value="by.bsuir.autobase.entity.FuelType"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="string" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="SUV"/>
+            <xs:enumeration value="PETROL"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="voidType" name="void" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="class" use="optional"/>
+    <xs:attribute type="xs:string" name="method" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="voidType">
+    <xs:sequence>
+      <xs:element type="objectType" name="object" minOccurs="0"/>
+      <xs:element type="xs:string" name="int" minOccurs="0"/>
+      <xs:element type="xs:string" name="double" minOccurs="0"/>
+      <xs:element name="string" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="P"/>
+            <xs:enumeration value="Roman"/>
+            <xs:enumeration value="123"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="property" use="optional"/>
+    <xs:attribute type="xs:string" name="method" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="javaType">
+    <xs:sequence>
+      <xs:element type="objectType" name="object"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="version"/>
+    <xs:attribute type="xs:string" name="class"/>
+  </xs:complexType>
 </xs:schema>

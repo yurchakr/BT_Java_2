@@ -31,6 +31,15 @@ public class VehicleDAO implements IVehicleDAO {
     public void delete(int index){
         ArrayList<Vehicle> vehicles = getVehicles();
         if (vehicles != null){
+
+            //DB Migration
+            DBController DBC =  new DBController();
+            Vehicle vehicle = vehicles.get(index);
+            if (!DBC.DBUpdate(vehicle.getModel(), vehicle.getMake(), vehicle.getPrice(), vehicle.getFuelConsumption(), vehicle.getPower(), vehicle.getPower(), false))
+            {
+                System.out.println("Error while DB migration");
+            }
+
             vehicles.remove(index);
             AutoBase.setCarList(vehicles);
             save(vehicles);
@@ -38,6 +47,13 @@ public class VehicleDAO implements IVehicleDAO {
     }
 
     public void insert(Vehicle vehicle){
+        //DB Migration
+        DBController DBC =  new DBController();
+        if (!DBC.DBUpdate(vehicle.getModel(), vehicle.getMake(), vehicle.getPrice(), vehicle.getFuelConsumption(), vehicle.getPower(), vehicle.getPower(), true))
+        {
+            System.out.println("Error while DB migration");
+        }
+
         ArrayList<Vehicle> vehicles = getVehicles();
         if (vehicles == null) {
             vehicles = new ArrayList<Vehicle>();
@@ -89,15 +105,4 @@ public class VehicleDAO implements IVehicleDAO {
         return new File("").getAbsolutePath()+"\\data\\cars.xml";
     }
 
-    public void MigrateToDB() {
-        ArrayList<Vehicle> vehicles = DaoFactory.getVehicleDAO().getVehicles();
-        DBController DBC=  new DBController();
-        for(Vehicle veh: vehicles)
-        {
-            if (!DBC.DBInsert(veh.getModel(),veh.getMake(), veh.getPrice(), veh.getFuelConsumption(), veh.getPower(), veh.getPower()))
-            {
-                System.out.println("Error while data migration to DB");
-            }
-        }
-    }
 }

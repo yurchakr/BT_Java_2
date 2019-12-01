@@ -74,6 +74,7 @@ public class Serialize<T> implements ISerialize<T>{
                     .validate(new StreamSource(xml));
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            System.out.println("e");
         }
         return true;
     }

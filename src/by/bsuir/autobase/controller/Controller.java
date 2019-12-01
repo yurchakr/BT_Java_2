@@ -24,7 +24,6 @@ public class Controller {
     public static void initializeAutobase() {
         AutoBase.setCarList(DaoFactory.getVehicleDAO().getVehicles());
         AutoBase.setUsers(DaoFactory.getUserDAO().getUsers());
-        DaoFactory.getVehicleDAO().MigrateToDB();
     }
 
     /**

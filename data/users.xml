@@ -21,5 +21,15 @@
     </void>
    </object>
   </void>
+  <void method="add">
+   <object class="by.bsuir.autobase.entity.Customer">
+    <void property="name">
+     <string>rom</string>
+    </void>
+    <void property="password">
+     <string>1</string>
+    </void>
+   </object>
+  </void>
  </object>
 </java>
